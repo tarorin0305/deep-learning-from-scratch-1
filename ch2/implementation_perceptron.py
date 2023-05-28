@@ -76,6 +76,21 @@ class TestORFunction(unittest.TestCase):
         self.assertEqual(OR(1, 0), 1)
         self.assertEqual(OR(1, 1), 1)
 
+# xor gate function
+def XOR(x1, x2):
+    s1 = NAND(x1, x2) # nand gate
+    s2 = OR(x1, x2) # or gate
+    y = AND(s1, s2) # and gate
+    return y
+
+# unit test of XOR function
+class TestXORFunction(unittest.TestCase):
+    def test_XOR(self):
+        self.assertEqual(XOR(0, 0), 0)
+        self.assertEqual(XOR(0, 1), 1)
+        self.assertEqual(XOR(1, 0), 1)
+        self.assertEqual(XOR(1, 1), 0)
+
 # execute unit test
 if __name__ == '__main__':
     unittest.main()
